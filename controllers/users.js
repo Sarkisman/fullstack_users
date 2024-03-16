@@ -38,7 +38,7 @@ const login = async (req, res) => {
         .json({ massage: 'Неверно введён логин или пароль' });
     }
   } catch (error) {
-    return res.status(400).json({ massage: 'Что-пошло не так' });
+    return res.status(500).json({ massage: 'Что-пошло не так' });
   }
 };
 
@@ -85,7 +85,7 @@ const register = async (req, res) => {
         .json({ massage: 'Не удалось создать пользователя' });
     }
   } catch (error) {
-    return res.status(400).json({ massage: 'Что-пошло не так' });
+    return res.status(500).json({ massage: 'Что-пошло не так' });
   }
 };
 
@@ -98,7 +98,7 @@ const current = async (req, res) => {
   try {
     return res.status(200).json(req.user);
   } catch (error) {
-    return res.status(400).json({ massage: 'Что-пошло не так' });
+    return res.status(500).json({ massage: 'Что-пошло не так' });
   }
 };
 
