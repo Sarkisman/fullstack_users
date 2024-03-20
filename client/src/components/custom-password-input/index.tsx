@@ -15,9 +15,30 @@ export const CustomPasswordInput = ({
   return (
     <Form.Item
       name={name}
-      // rules={[{ required: true, message: 'Обязательное поле' }, ({getFieldValue})=>{
-      //   getFieldValue
-      // }]}
+      rules={[
+        { required: true, message: 'Обязательное поле' },
+        ({ getFieldValue }) => ({
+          validator(_, value) {
+            if (!value === value) {
+              return Promise.resolve();
+            }
+
+            if (name === 'confirmPassword') {
+              if (!value || getFieldValue('password') === value) {
+                return Promise.resolve();
+              }
+              return Promise.reject(new Error('Пароли должны совпадать'));
+            } else {
+              if (value.length < 6) {
+                return Promise.reject(
+                  new Error('Пароли должен быть длиннее 6-ти символов')
+                );
+              }
+              return Promise.resolve();
+            }
+          },
+        }),
+      ]}
       dependencies={dependencies}
       hasFeedback
     >

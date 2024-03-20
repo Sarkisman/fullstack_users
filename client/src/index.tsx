@@ -26,7 +26,7 @@ const root = createRoot(container);
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <ConfigProvider theme={{}}>
+      <ConfigProvider theme={{ algorithm: theme.darkAlgorithm }}>
         <RouterProvider router={router} />
       </ConfigProvider>
     </Provider>
