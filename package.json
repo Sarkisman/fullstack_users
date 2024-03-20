@@ -9,6 +9,7 @@
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "dependencies": {
+    "@ant-design/icons": "^4.8.2",
     "@prisma/client": "^5.11.0",
     "bcrypt": "^5.1.1",
     "concurrently": "^8.2.2",

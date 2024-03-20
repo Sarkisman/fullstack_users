@@ -9,11 +9,11 @@ import { Paths } from './paths';
 import Home from './pages/home';
 import Login from './pages/login';
 import Register from './pages/register';
-
+import { ConfigProvider, theme } from 'antd';
 
 const router = createBrowserRouter([
   { path: Paths.home, element: <Home /> },
-  { path: Paths.login, element: <Login />},
+  { path: Paths.login, element: <Login /> },
   { path: Paths.register, element: <Register /> },
   { path: Paths.employeeAdd, element: <h1>employeeAdd</h1> },
   { path: Paths.employeeEdit, element: <h1>employeeEdit</h1> },
@@ -26,7 +26,9 @@ const root = createRoot(container);
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <RouterProvider router={router} />
+      <ConfigProvider theme={{}}>
+        <RouterProvider router={router} />
+      </ConfigProvider>
     </Provider>
   </React.StrictMode>
 );
