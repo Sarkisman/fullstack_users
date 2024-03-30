@@ -4,24 +4,22 @@ import { Layout } from '../../components/layout';
 import { CustomInput } from '../../components/custom-input';
 import { CustomPasswordInput } from '../../components/custom-password-input';
 import { CustomButton } from '../../components/custom-button';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Paths } from '../../paths';
 import { UserData, useLoginMutation } from '../../app/services/auth';
 import { isErrorWithMessage } from '../../utils/is-error-with-message';
 import { ErrorMessage } from '../../components/error-message';
 
 export const Login = () => {
+  const navigate = useNavigate();
   const [loginUser, loginUserResult] = useLoginMutation();
   const [err, setErr] = useState('');
 
   const login = async (data: UserData) => {
     try {
-      console.log(1);
       await loginUser(data).unwrap();
-      console.log(data);
+      navigate(Paths.home);
     } catch (err) {
-      console.log(err);
-      
       const maybyError = isErrorWithMessage(err);
       if (maybyError) {
         setErr(err.data.message);

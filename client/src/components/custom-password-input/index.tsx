@@ -16,7 +16,10 @@ export const CustomPasswordInput = ({
     <Form.Item
       name={name}
       rules={[
-        { required: true, message: 'Обязательное поле' },
+        {
+          required: true,
+          message: 'Обязательное поле',
+        },
         ({ getFieldValue }) => ({
           validator(_, value) {
             if (!value === value) {
@@ -42,7 +45,11 @@ export const CustomPasswordInput = ({
       dependencies={dependencies}
       hasFeedback
     >
-      <Input.Password placeholder={placeholder} size="large" />
+      <Input.Password
+        placeholder={placeholder}
+        size="large"
+        autoComplete={name}
+      />
     </Form.Item>
   );
 };

@@ -21,22 +21,21 @@ const slice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addMatcher(authApi.endpoints.login.matchFulfilled, (state, acction) => {
-        console.log(3);
-        state.user = acction.payload;
+      .addMatcher(authApi.endpoints.login.matchFulfilled, (state, action) => {
+        state.user = action.payload;
         state.isAuthenticated = true;
       })
       .addMatcher(
         authApi.endpoints.register.matchFulfilled,
-        (state, acction) => {
-          state.user = acction.payload;
+        (state, action) => {
+          state.user = action.payload;
           state.isAuthenticated = true;
         }
       )
       .addMatcher(
         authApi.endpoints.current.matchFulfilled,
-        (state, acction) => {
-          state.user = acction.payload;
+        (state, action) => {
+          state.user = action.payload;
           state.isAuthenticated = true;
         }
       );

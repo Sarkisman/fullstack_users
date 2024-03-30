@@ -46,7 +46,6 @@ const add = async (req, res) => {
 const remove = async (req, res) => {
   try {
     const { id } = req.params;
-    console.log(id);
     await prisma.employee.delete({
       where: {
         id,

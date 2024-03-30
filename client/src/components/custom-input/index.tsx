@@ -13,7 +13,7 @@ export const CustomInput = ({ name, placeholder, type = 'text' }: Props) => {
       rules={[{ required: true, message: 'обязательное поле' }]}
       shouldUpdate={true}
     >
-      <Input placeholder={placeholder} type={type} size="large" />
+      <Input placeholder={placeholder} type={type} size="large" autoComplete={type}/>
     </Form.Item>
   );
 };
